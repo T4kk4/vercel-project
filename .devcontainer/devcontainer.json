@@ -1,0 +1,24 @@
+{
+    "name": "seikei-listing-v1-nextjs",         // コンテナ名
+    "dockerFile": "Dockerfile",            // Dockerfileのパス
+    "appPort": 3000,                       // アプリケーションのポート番号
+    "customizations": {
+        "vscode": {
+            "settings": {
+                "terminal.integrated.defaultProfile.linux": "bash" // コンテナ内のターミナルをbashに設定
+            },
+            "extensions": [
+                "dbaeumer.vscode-eslint",
+                "esbenp.prettier-vscode",
+                "dsznajder.es7-react-js-snippets",
+                "GitHub.copilot",
+                "GitHub.copilot-chat",
+                "oderwat.indent-rainbow",
+                "shardulm94.trailing-spaces",
+                "MS-CEINTL.vscode-language-pack-ja"
+            ]
+        }
+    },
+    "remoteUser": "seikei-listing-v1",           // コンテナ内のユーザー名
+    "forwardPorts": [3000]                 // localhost:XXXX でアクセスできるポート番号
+}

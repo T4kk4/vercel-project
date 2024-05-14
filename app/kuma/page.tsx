@@ -48,7 +48,8 @@ export default async function Kuma({ params, searchParams }: Props) {
     // console.log(clinics)
     const {data: searchOption, error: searchOptionError} = await getSearchOptionsByCategoryName("kuma");
 
-    
+    // 現在の年
+    const year = new Date().getFullYear();
 
     return (
         <>
@@ -102,16 +103,16 @@ export default async function Kuma({ params, searchParams }: Props) {
                 </div>
 
                 {/* コラム */}
-                <div className="px-4 md:px-20 ">コラム一覧</div>
+                {/* <div className="px-4 md:px-20 ">コラム一覧</div> */}
 
                 <div className="mb-4 flex items-center justify-center gap-2 text-sm">
-                    <div className="text-blue-800 font-bold">運営者情報</div>
+                    <a href="/kuma/about" className="text-blue-800 font-bold">運営者情報</a>
                     <div>/</div>
-                    <div className="text-blue-800 font-bold">調査概要</div>
+                    <a href="/kuma/info" className="text-blue-800 font-bold">調査概要</a>
                 </div>
 
                 <div className="pb-4 flex items-center justify-center gap-2 text-xs text-gray-400">
-                    ©︎ 2023
+                    ©︎ {year}
                 </div>
             </div>
         </>

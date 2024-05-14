@@ -132,8 +132,9 @@ export default async function KumaResult({ params, searchParams }: Props) {
                 <div className="px-4 md:px-20 ">コラム一覧</div>
 
                 <div className="mb-4 flex items-center justify-center gap-2 text-sm">
-                    <div>運営者情報</div>
-                    <div>調査概要</div>
+                    <a href="/kuma/about" className="text-blue-800 font-bold">運営者情報</a>
+                    <div>/</div>
+                    <a href="/kuma/info" className="text-blue-800 font-bold">調査概要</a>
                 </div>
 
                 <div className="pb-4 flex items-center justify-center gap-2 text-xs text-gray-400">

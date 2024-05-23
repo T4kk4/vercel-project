@@ -136,9 +136,13 @@ export default function KumaClinicList({clinics}: {clinics: ClinicKuma[]}) {
                     {clinicsOther.map((clinic, i) => (
                         <div key={i} className="mb-10 px-4 md:px-20 border-b border-gray-700">
                             <div className="mb-1 text-xs md:text-base text-pink-400 font-bold">{clinic.copy}</div>
-                            <div className="mb-2 text-lg md:text-2xl text-blue-800 font-bold underline">{clinic.name}</div>
-                            <div className="mb-8 w-full h-44 md:h-52 bg-slate-50">
-                                <img src={clinic.thumbnail} alt="" className="object-contain w-full h-full" />
+                            <div className="mb-2">
+                                <a href={clinic.url_official} className="text-lg md:text-2xl text-blue-800 font-bold underline hover:opacity-70 active:opacity-100 transition-all">{clinic.name}</a>
+                            </div>
+                            <div className="mb-8">
+                                <a href={clinic.url_official} className="w-full h-44 md:h-52 bg-slate-50 hover:opacity-70 active:opacity-100 transition-all">
+                                    <img src={clinic.thumbnail} alt="" className="object-contain w-full h-full" />
+                                </a>
                             </div>
         
                             <div className="mb-8 p-4 bg-yellow-50">
@@ -172,7 +176,7 @@ export default function KumaClinicList({clinics}: {clinics: ClinicKuma[]}) {
         
                             <div className="mb-6 flex items-center justify-end text-sm md:text-base font-bold">
                                 <div className="">【公式】</div>
-                                <div className="text-blue-700 underline">{clinic.url_official}</div>
+                                <a href={clinic.url_official} className="text-blue-700 underline">{clinic.url_official}</a>
                             </div>
         
                             <div className="mb-6 text-sm leading-6">

@@ -9,6 +9,7 @@ import ReactMarkdown from "react-markdown";
 import remarkGfm from "remark-gfm";
 import rehypeRaw from "rehype-raw";
 import { montserrat, notoSansJP } from "@/fonts";
+import { getURL } from "@/_functions/url";
 
 
 export default function KumaRanking({clinics}: {clinics: ClinicKuma[]}) {
@@ -25,7 +26,7 @@ export default function KumaRanking({clinics}: {clinics: ClinicKuma[]}) {
                             <div className="mb-2 w-full h-16 md:h-20 bg-white">
                                 <img src={clinic.img_logo} alt="" className="object-contain w-full h-full" />
                             </div>
-                            <a href={clinic.url_official} className="text-center text-blue-800 underline font-bold hover:opacity-70 active:opacity-100 transition-all">{clinic.name}</a>
+                            <a href={getURL(clinic)} className="text-center text-blue-800 underline font-bold hover:opacity-70 active:opacity-100 transition-all">{clinic.name}</a>
                         </div>
                     ))}
                 </div>
@@ -162,7 +163,7 @@ export default function KumaRanking({clinics}: {clinics: ClinicKuma[]}) {
                     <div className="shrink-0 px-2 w-20 md:w-36 flex items-center justify-center text-center bg-orange-100">公式サイト</div>
                     {clinics.map((clinic, i) => (
                         <div key={i} className={`shrink-0 w-32 md:w-40 px-2 py-4 flex flex-col items-center justify-center text-xs `}>
-                            <a href={clinic.url_official} className="px-3 py-2 text-white font-bold bg-pink-500 shadow shadow-pink-400 rounded hover:opacity-70 active:opacity-100 transition-all">詳細を見る</a>
+                            <a href={getURL(clinic)} className="px-3 py-2 text-white font-bold bg-pink-500 shadow shadow-pink-400 rounded hover:opacity-70 active:opacity-100 transition-all">詳細を見る</a>
                         </div>
                     ))}
                 </div>
@@ -175,7 +176,7 @@ export default function KumaRanking({clinics}: {clinics: ClinicKuma[]}) {
                 <div className="mb-2 w-full h-40 bg-slate-100">
                     <img src={clinics[0].thumbnail} alt="" className="object-contain w-full h-full" />
                 </div>
-                <a href={clinics[0].url_official} className="relative py-4 w-full flex items-center justify-center text-white font-bold bg-pink-500 rounded hover:opacity-70 active:opacity-100 transition-all">
+                <a href={getURL(clinics[0])} className="relative py-4 w-full flex items-center justify-center text-white font-bold bg-pink-500 rounded hover:opacity-70 active:opacity-100 transition-all">
                     {clinics[0].name}を予約する
                     <FontAwesomeIcon icon={faArrowRightLong} className={"absolute top-1/2 right-1 md:right-4 transform -translate-y-1/2 w-4 h-4 text-white"}/>
                 </a>

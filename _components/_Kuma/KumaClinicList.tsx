@@ -1,6 +1,7 @@
 "use client";
 
 import { clinicsKumaAtom } from "@/_atoms/atoms_clinic";
+import { getURL } from "@/_functions/url";
 import { ClinicKuma } from "@/_types/types_global";
 import { faSquareCheck } from "@fortawesome/free-regular-svg-icons";
 import { faArrowRightLong, faSlash } from "@fortawesome/free-solid-svg-icons";
@@ -15,12 +16,6 @@ export default function KumaClinicList({clinics}: {clinics: ClinicKuma[]}) {
 
     const clinicsTop3 = clinics.slice(0, 3)
     const clinicsOther = clinics.slice(3)
-
-    const getURL = (clinic: ClinicKuma) => {
-        // clinic.url_affiliateが空欄でなければ、それを返す。空欄ならclinic.url_officialを返す
-        if (clinic.url_affiliate) return clinic.url_affiliate;
-        return clinic.url_official;
-    }
 
     return (
         <>

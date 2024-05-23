@@ -222,10 +222,10 @@ export default function KumaClinicList({clinics}: {clinics: ClinicKuma[]}) {
                                     <div className="mb-2 w-60 h-32 bg-white">
                                         <img src={clinic.img_logo} alt="" className="object-contain w-full h-full" />
                                     </div>
-                                    <div className="relative py-4 w-full flex items-center justify-center text-white font-bold bg-pink-500 rounded">
+                                    <a href={clinic.url_official} className="relative py-4 w-full flex items-center justify-center text-white font-bold bg-pink-500 rounded hover:opacity-70 active:opacity-100 transition-all">
                                         {clinic.name}を予約する
                                         <FontAwesomeIcon icon={faArrowRightLong} className={"absolute top-1/2 right-1 md:right-4 transform -translate-y-1/2 w-4 h-4 text-white"}/>
-                                    </div>
+                                    </a>
                                 </div>
                             </div>
                         </div>

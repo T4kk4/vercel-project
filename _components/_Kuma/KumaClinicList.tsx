@@ -16,6 +16,12 @@ export default function KumaClinicList({clinics}: {clinics: ClinicKuma[]}) {
     const clinicsTop3 = clinics.slice(0, 3)
     const clinicsOther = clinics.slice(3)
 
+    const getURL = (clinic: ClinicKuma) => {
+        // clinic.url_affiliateが空欄でなければ、それを返す。空欄ならclinic.url_officialを返す
+        if (clinic.url_affiliate) return clinic.url_affiliate;
+        return clinic.url_official;
+    }
+
     return (
         <>
             <div className="mb-8 px-10 py-6 text-center text-xl text-white font-bold bg-sky-400 shadow-lg">厳選！おすすめクリニック紹介</div>
@@ -24,10 +30,10 @@ export default function KumaClinicList({clinics}: {clinics: ClinicKuma[]}) {
                 <div key={i} className="mb-10 px-4 md:px-20 border-b border-gray-700">
                     <div className="mb-1 text-xs md:text-base text-pink-400 font-bold">{clinic.copy}</div>
                     <div className="mb-2">
-                        <a href={clinic.url_official} className="text-lg md:text-2xl text-blue-800 font-bold underline hover:opacity-70 active:opacity-100 transition-all">{clinic.name}</a>
+                        <a href={getURL(clinic)} className="text-lg md:text-2xl text-blue-800 font-bold underline hover:opacity-70 active:opacity-100 transition-all">{clinic.name}</a>
                     </div>
                     <div className="mb-8 ">
-                        <a href={clinic.url_official} className="w-full h-44 md:h-52 bg-slate-50 hover:opacity-70 active:opacity-100 transition-all">
+                        <a href={getURL(clinic)} className="w-full h-44 md:h-52 bg-slate-50 hover:opacity-70 active:opacity-100 transition-all">
                             <img src={clinic.thumbnail} alt="" className="object-contain w-full h-full" />
                         </a>
                     </div>
@@ -65,7 +71,7 @@ export default function KumaClinicList({clinics}: {clinics: ClinicKuma[]}) {
 
                     <div className="mb-6 flex items-center justify-end text-sm md:text-base font-bold">
                         <div className="">【公式】</div>
-                        <a href={clinic.url_official} className="text-blue-700 underline">{clinic.url_official}</a>
+                        <a href={getURL(clinic)} className="text-blue-700 underline">{clinic.url_official}</a>
                     </div>
 
                     <div className="mb-6 text-sm leading-6">
@@ -115,7 +121,7 @@ export default function KumaClinicList({clinics}: {clinics: ClinicKuma[]}) {
                             <div className="mb-2 w-60 h-32 bg-white">
                                 <img src={clinic.img_logo} alt="" className="object-contain w-full h-full" />
                             </div>
-                            <a href={clinic.url_official} className="relative py-4 w-full flex items-center justify-center text-white font-bold bg-pink-500 rounded hover:opacity-70 active:opacity-100 transition-all">
+                            <a href={getURL(clinic)} className="relative py-4 w-full flex items-center justify-center text-white font-bold bg-pink-500 rounded hover:opacity-70 active:opacity-100 transition-all">
                                 {clinic.name}を予約する
                                 <FontAwesomeIcon icon={faArrowRightLong} className={"absolute top-1/2 right-1 md:right-4 transform -translate-y-1/2 w-4 h-4 text-white"}/>
                             </a>
@@ -137,10 +143,10 @@ export default function KumaClinicList({clinics}: {clinics: ClinicKuma[]}) {
                         <div key={i} className="mb-10 px-4 md:px-20 border-b border-gray-700">
                             <div className="mb-1 text-xs md:text-base text-pink-400 font-bold">{clinic.copy}</div>
                             <div className="mb-2">
-                                <a href={clinic.url_official} className="text-lg md:text-2xl text-blue-800 font-bold underline hover:opacity-70 active:opacity-100 transition-all">{clinic.name}</a>
+                                <a href={getURL(clinic)} className="text-lg md:text-2xl text-blue-800 font-bold underline hover:opacity-70 active:opacity-100 transition-all">{clinic.name}</a>
                             </div>
                             <div className="mb-8">
-                                <a href={clinic.url_official} className="w-full h-44 md:h-52 bg-slate-50 hover:opacity-70 active:opacity-100 transition-all">
+                                <a href={getURL(clinic)} className="w-full h-44 md:h-52 bg-slate-50 hover:opacity-70 active:opacity-100 transition-all">
                                     <img src={clinic.thumbnail} alt="" className="object-contain w-full h-full" />
                                 </a>
                             </div>
@@ -176,7 +182,7 @@ export default function KumaClinicList({clinics}: {clinics: ClinicKuma[]}) {
         
                             <div className="mb-6 flex items-center justify-end text-sm md:text-base font-bold">
                                 <div className="">【公式】</div>
-                                <a href={clinic.url_official} className="text-blue-700 underline">{clinic.url_official}</a>
+                                <a href={getURL(clinic)} className="text-blue-700 underline">{clinic.url_official}</a>
                             </div>
         
                             <div className="mb-6 text-sm leading-6">
@@ -226,7 +232,7 @@ export default function KumaClinicList({clinics}: {clinics: ClinicKuma[]}) {
                                     <div className="mb-2 w-60 h-32 bg-white">
                                         <img src={clinic.img_logo} alt="" className="object-contain w-full h-full" />
                                     </div>
-                                    <a href={clinic.url_official} className="relative py-4 w-full flex items-center justify-center text-white font-bold bg-pink-500 rounded hover:opacity-70 active:opacity-100 transition-all">
+                                    <a href={getURL(clinic)} className="relative py-4 w-full flex items-center justify-center text-white font-bold bg-pink-500 rounded hover:opacity-70 active:opacity-100 transition-all">
                                         {clinic.name}を予約する
                                         <FontAwesomeIcon icon={faArrowRightLong} className={"absolute top-1/2 right-1 md:right-4 transform -translate-y-1/2 w-4 h-4 text-white"}/>
                                     </a>
